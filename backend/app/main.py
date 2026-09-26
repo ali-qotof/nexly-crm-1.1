@@ -12,6 +12,8 @@ from app.api.v1.assignments import router as assignments_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.customers import router as customers_router
 from app.api.v1.employees import router as employees_router
+from app.api.v1.products import router as products_router
+from app.api.v1.settings import router as settings_router
 from app.config import get_settings
 import app.models  # noqa: F401  يضمن أن كل الجداول مسجّلة في Base.metadata
 
@@ -36,6 +38,8 @@ app.include_router(auth_router, prefix="/api/v1")
 app.include_router(customers_router, prefix="/api/v1")
 app.include_router(assignments_router, prefix="/api/v1")
 app.include_router(employees_router, prefix="/api/v1")
+app.include_router(products_router, prefix="/api/v1")
+app.include_router(settings_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["system"])

@@ -9,7 +9,7 @@
 | 2 | Authentication + Roles | ✅ مكتملة — انظر `docs/PHASE2_REPORT.md` |
 | 3 | Customers + Assignment | ✅ مكتملة — انظر `docs/PHASE3_REPORT.md` |
 | 4 | Employees | ✅ مكتملة — انظر `docs/PHASE4_REPORT.md` |
-| 5 | Products + Pricing | ⬜ لم تبدأ |
+| 5 | Products + Pricing | ✅ مكتملة — انظر `docs/PHASE5_REPORT.md` |
 | 6 | Orders | ⬜ لم تبدأ |
 | 7 | Interactions + Follow-ups + Complaints | ⬜ لم تبدأ |
 | 8 | Dashboard + Reports | ⬜ لم تبدأ |
