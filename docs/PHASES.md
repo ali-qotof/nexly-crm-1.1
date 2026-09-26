@@ -6,7 +6,7 @@
 | Phase | الوصف | الحالة |
 |---|---|---|
 | 1 | Architecture + Database | ✅ مكتملة — انظر `docs/PHASE1_REPORT.md` |
-| 2 | Authentication + Roles | ⬜ لم تبدأ |
+| 2 | Authentication + Roles | ✅ مكتملة — انظر `docs/PHASE2_REPORT.md` |
 | 3 | Customers + Assignment | ⬜ لم تبدأ |
 | 4 | Employees | ⬜ لم تبدأ |
 | 5 | Products + Pricing | ⬜ لم تبدأ |

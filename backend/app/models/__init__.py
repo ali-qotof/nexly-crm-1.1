@@ -6,6 +6,7 @@ from app.models.integration import Integration, IntegrationEvent
 from app.models.interaction import Attachment, FollowUp, Interaction
 from app.models.order import Order, OrderItem
 from app.models.product import Bundle, BundleItem, Product, ProductVariant
+from app.models.refresh_token import RefreshToken
 from app.models.settings import Setting, ShippingRule, StatusConfiguration
 from app.models.user import User
 
@@ -27,6 +28,7 @@ __all__ = [
     "BundleItem",
     "Product",
     "ProductVariant",
+    "RefreshToken",
     "Setting",
     "ShippingRule",
     "StatusConfiguration",
