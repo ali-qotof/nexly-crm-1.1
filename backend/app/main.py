@@ -8,7 +8,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.api.v1.assignments import router as assignments_router
 from app.api.v1.auth import router as auth_router
+from app.api.v1.customers import router as customers_router
 from app.config import get_settings
 import app.models  # noqa: F401  يضمن أن كل الجداول مسجّلة في Base.metadata
 
@@ -30,6 +32,8 @@ app.add_middleware(
 )
 
 app.include_router(auth_router, prefix="/api/v1")
+app.include_router(customers_router, prefix="/api/v1")
+app.include_router(assignments_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["system"])

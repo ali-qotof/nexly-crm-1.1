@@ -7,7 +7,7 @@
 |---|---|---|
 | 1 | Architecture + Database | ✅ مكتملة — انظر `docs/PHASE1_REPORT.md` |
 | 2 | Authentication + Roles | ✅ مكتملة — انظر `docs/PHASE2_REPORT.md` |
-| 3 | Customers + Assignment | ⬜ لم تبدأ |
+| 3 | Customers + Assignment | ✅ مكتملة — انظر `docs/PHASE3_REPORT.md` |
 | 4 | Employees | ⬜ لم تبدأ |
 | 5 | Products + Pricing | ⬜ لم تبدأ |
 | 6 | Orders | ⬜ لم تبدأ |
