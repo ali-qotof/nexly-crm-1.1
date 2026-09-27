@@ -10,7 +10,7 @@
 | 3 | Customers + Assignment | ✅ مكتملة — انظر `docs/PHASE3_REPORT.md` |
 | 4 | Employees | ✅ مكتملة — انظر `docs/PHASE4_REPORT.md` |
 | 5 | Products + Pricing | ✅ مكتملة — انظر `docs/PHASE5_REPORT.md` |
-| 6 | Orders | ⬜ لم تبدأ |
+| 6 | Orders | ✅ مكتملة — انظر `docs/PHASE6_REPORT.md` |
 | 7 | Interactions + Follow-ups + Complaints | ⬜ لم تبدأ |
 | 8 | Dashboard + Reports | ⬜ لم تبدأ |
 | 9 | Integrations (Google Sheets / WhatsApp / Shipping abstractions) | ⬜ لم تبدأ |
