@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session, selectinload
 
 from app.models import Customer, Order, OrderItem, User
 from app.models.enums import OrderStatus
+from app.services.access_control import CustomerAccessError, ensure_customer_access
 from app.services.audit_service import write_audit_log
 from app.services.pricing_service import OrderPricingService, PricingError
 
@@ -41,6 +42,10 @@ class OrderService:
         customer = self.db.get(Customer, data.customer_id)
         if customer is None:
             raise OrderError("العميل غير موجود")
+        try:
+            ensure_customer_access(self.db, data.customer_id, actor)
+        except CustomerAccessError as exc:
+            raise OrderError(str(exc))
 
         pricing = OrderPricingService(self.db)
         try:

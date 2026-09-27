@@ -11,7 +11,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api.v1.assignments import router as assignments_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.customers import router as customers_router
+from app.api.v1.complaints import router as complaints_router
 from app.api.v1.employees import router as employees_router
+from app.api.v1.interactions import router as interactions_router
 from app.api.v1.orders import router as orders_router
 from app.api.v1.products import router as products_router
 from app.api.v1.settings import router as settings_router
@@ -42,6 +44,8 @@ app.include_router(employees_router, prefix="/api/v1")
 app.include_router(products_router, prefix="/api/v1")
 app.include_router(settings_router, prefix="/api/v1")
 app.include_router(orders_router, prefix="/api/v1")
+app.include_router(interactions_router, prefix="/api/v1")
+app.include_router(complaints_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["system"])

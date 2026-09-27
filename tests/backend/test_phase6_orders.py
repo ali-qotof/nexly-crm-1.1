@@ -183,6 +183,12 @@ def test_employee_only_sees_own_orders(db):
     db.commit()
     db.refresh(customer)
 
+    assign_resp = mgr_client.post(
+        "/api/v1/assignments/assign",
+        json={"customer_ids": [str(customer.id)], "employee_id": str(emp1.id)},
+    )
+    assert assign_resp.json()["assigned"] == 1
+
     emp1_client = TestClient(app)
     _login(emp1_client, "emp6_iso1")
     emp1_client.post(
@@ -215,6 +221,12 @@ def test_cancel_order_manager_only(db):
     db.add(customer)
     db.commit()
     db.refresh(customer)
+
+    assign_resp = mgr_client.post(
+        "/api/v1/assignments/assign",
+        json={"customer_ids": [str(customer.id)], "employee_id": str(employee.id)},
+    )
+    assert assign_resp.json()["assigned"] == 1
 
     emp_client = TestClient(app)
     _login(emp_client, "emp6_cancel")
