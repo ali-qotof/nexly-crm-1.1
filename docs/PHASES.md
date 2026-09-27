@@ -12,7 +12,7 @@
 | 5 | Products + Pricing | ✅ مكتملة — انظر `docs/PHASE5_REPORT.md` |
 | 6 | Orders | ✅ مكتملة — انظر `docs/PHASE6_REPORT.md` |
 | 7 | Interactions + Follow-ups + Complaints | ✅ مكتملة — انظر `docs/PHASE7_REPORT.md` |
-| 8 | Dashboard + Reports | ⬜ لم تبدأ |
+| 8 | Dashboard + Reports | ✅ مكتملة — انظر `docs/PHASE8_REPORT.md` |
 | 9 | Integrations (Google Sheets / WhatsApp / Shipping abstractions) | ⬜ لم تبدأ |
 | 10 | Mobile UX | ⬜ لم تبدأ |
 | 11 | Testing | ⬜ لم تبدأ |
