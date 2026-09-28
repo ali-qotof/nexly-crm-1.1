@@ -1,11 +1,14 @@
-from fastapi import APIRouter, Depends, Query
+import uuid
+
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import require_any_authenticated, require_manager
 from app.db.session import get_db
 from app.models import User
 from app.models.enums import UserRole
-from app.schemas.customer import PaginatedCustomers
+from app.schemas.customer import CustomerOut, PaginatedCustomers
+from app.services.access_control import CustomerAccessError, ensure_customer_access
 from app.services.customer_service import CustomerService
 
 router = APIRouter(prefix="/customers", tags=["customers"])
@@ -39,3 +42,17 @@ def list_my_customers(
     """
     service = CustomerService(db)
     return service.list_customers(q=q, employee_id=current_user.id, page=page, page_size=page_size)
+
+
+@router.get("/{customer_id}", response_model=CustomerOut)
+def get_customer(
+    customer_id: uuid.UUID,
+    current_user: User = Depends(require_any_authenticated),
+    db: Session = Depends(get_db),
+):
+    """تفاصيل عميل — الموظفة فقط لعملائها المخصصين (القاعدة 5)، المدير لأي عميل."""
+    try:
+        return ensure_customer_access(db, customer_id, current_user)
+    except CustomerAccessError as exc:
+        code = status.HTTP_404_NOT_FOUND if "غير موجود" in str(exc) else status.HTTP_403_FORBIDDEN
+        raise HTTPException(status_code=code, detail=str(exc))

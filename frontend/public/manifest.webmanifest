@@ -1,0 +1,2 @@
+{ "name": "Nexly CRM", "short_name": "Nexly", "lang": "ar", "dir": "rtl", "display": "standalone",
+  "start_url": "/", "background_color": "#ffffff", "theme_color": "#4a7530", "icons": [] }

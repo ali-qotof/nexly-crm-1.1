@@ -210,3 +210,22 @@ def test_import_never_creates_new_customers(db):
 
     after_count = len(db.execute(select(Customer)).scalars().all())
     assert after_count == before  # لم يُنشأ أي عميل جديد
+
+
+def test_customer_detail_access_control(db):
+    manager = _manager(db, "mgr3_detail")
+    emp1 = _employee(db, "emp3_detail1")
+    emp2 = _employee(db, "emp3_detail2")
+    c = _customer(db, "CUST-DETAIL-1", phone="0155555555")
+    db.add(CustomerAssignment(customer_id=c.id, employee_id=emp1.id, assigned_by_id=manager.id))
+    db.commit()
+
+    owner = TestClient(app); _login(owner, "emp3_detail1")
+    assert owner.get(f"/api/v1/customers/{c.id}").json()["customer_code"] == "CUST-DETAIL-1"
+
+    other = TestClient(app); _login(other, "emp3_detail2")
+    assert other.get(f"/api/v1/customers/{c.id}").status_code == 403
+
+    mgr = TestClient(app); _login(mgr, "mgr3_detail")
+    assert mgr.get(f"/api/v1/customers/{c.id}").status_code == 200
+    assert mgr.get(f"/api/v1/customers/{uuid.uuid4()}").status_code == 404

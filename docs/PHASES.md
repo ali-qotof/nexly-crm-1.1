@@ -14,7 +14,7 @@
 | 7 | Interactions + Follow-ups + Complaints | ✅ مكتملة — انظر `docs/PHASE7_REPORT.md` |
 | 8 | Dashboard + Reports | ✅ مكتملة — انظر `docs/PHASE8_REPORT.md` |
 | 9 | Integrations (Google Sheets / WhatsApp / Shipping abstractions) | ✅ مكتملة (بنية + webhook) — انظر `docs/PHASE9_REPORT.md` |
-| 10 | Mobile UX | ⬜ لم تبدأ |
+| 10 | Frontend + Mobile UX | 🟡 مبنية وتجتاز الفحص الآلي، بدون تحقق بصري — انظر `docs/PHASE10_REPORT.md` |
 | 11 | Testing | ⬜ لم تبدأ |
 | 12 | Migration (بيانات حقيقية) | ⬜ لم تبدأ — يتطلب تصدير حقيقي للبيانات أو اتصال مباشر بقاعدة المصدر |
 | 13 | Production Deployment | ⬜ لم تبدأ — يتطلب صلاحيات نشر فعلية (FastAPI Cloud / Supabase) |
