@@ -14,6 +14,7 @@ from app.api.v1.customers import router as customers_router
 from app.api.v1.complaints import router as complaints_router
 from app.api.v1.dashboard import router as dashboard_router
 from app.api.v1.employees import router as employees_router
+from app.api.v1.integrations import router as integrations_router
 from app.api.v1.interactions import router as interactions_router
 from app.api.v1.orders import router as orders_router
 from app.api.v1.products import router as products_router
@@ -48,6 +49,7 @@ app.include_router(orders_router, prefix="/api/v1")
 app.include_router(interactions_router, prefix="/api/v1")
 app.include_router(complaints_router, prefix="/api/v1")
 app.include_router(dashboard_router, prefix="/api/v1")
+app.include_router(integrations_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["system"])
