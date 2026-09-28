@@ -6,6 +6,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session, selectinload
 
 from app.models import Customer, Order, OrderItem, User
+from app.models.order import order_number_seq
 from app.models.enums import OrderStatus
 from app.services.access_control import CustomerAccessError, ensure_customer_access
 from app.services.audit_service import write_audit_log
@@ -17,9 +18,8 @@ class OrderError(Exception):
 
 
 def _generate_order_number(db: Session) -> str:
-    """رقم طلب تسلسلي بسيط وقابل للقراءة البشرية (ORD-000001)."""
-    count = db.execute(select(Order)).scalars().all()
-    return f"ORD-{len(count) + 1:06d}"
+    """رقم طلب تسلسلي قابل للقراءة (ORD-000001) من SEQUENCE ذرّي — آمن تحت الطلبات المتزامنة."""
+    return f"ORD-{db.execute(order_number_seq.next_value()).scalar_one():06d}"
 
 
 class OrderService:

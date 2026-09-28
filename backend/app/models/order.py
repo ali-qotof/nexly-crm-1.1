@@ -1,12 +1,16 @@
 import uuid
 
 from sqlalchemy import Enum as SAEnum
-from sqlalchemy import ForeignKey, Numeric, String
+from sqlalchemy import ForeignKey, Numeric, Sequence, String
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 from app.models.enums import OrderStatus
+
+
+# رقم الطلب من SEQUENCE في قاعدة البيانات: ذرّي تحت التزامن (COUNT كان يتصادم).
+order_number_seq = Sequence("order_number_seq", metadata=Base.metadata)
 
 
 class Order(UUIDPrimaryKeyMixin, TimestampMixin, Base):

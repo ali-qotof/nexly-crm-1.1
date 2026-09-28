@@ -24,6 +24,7 @@ class Settings(BaseSettings):
     app_env: str = "development"
     app_version: str = "0.1.0"
     git_commit: str = "unknown"
+    build_time: str = "unknown"
 
     # CORS
     frontend_origin: str = "http://localhost:5173"
